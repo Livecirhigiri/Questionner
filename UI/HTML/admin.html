@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link href="../CSS/admin.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box box5"> <span>Administrator interface</span>
+            <a href="./index.html" style=" float : right; " type="button" class="return">logout</a>
+
+        </div>
+        <div class="box box1">
+            <h3 class="text">New MeetUp</h3>
+            <form action="">
+                <div class="row">
+                    <div class="labelrow">
+                        <label for="mdate">Name Meetup</label>
+                    </div>
+                    <div class="inputrow">
+                        <input type="tex" id="mdate" name="mdate" placeholder="topic">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="labelrow">
+                        <label for="mdate">Meetup date</label>
+                    </div>
+                    <div class="inputrow">
+                        <input type="date" id="mdate" name="mdate" placeholder="">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="labelrow">
+                        <label for="domain">Meetup domain</label>
+                    </div>
+                    <div class="inputrow">
+                        <select name="domain" id="">
+                            <option value="2">Network Security</option>
+                            <option value="3">Mathmatics</option>
+                            <option value="4">Mecanics</option>
+                            <option value="5">Love</option>
+                            <option value="6">Leaderchip</option>
+                            <option value="7">Agronomie</option>
+                            <option value="8">Transport</option>
+                            <option value="9">Human Science </option>
+                            <option value="10">Grography</option>
+                            <option value="11">Medecine</option>
+                            <option value="12">Law</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="labelrow">
+                        <label for="core">Meetup description</label>
+                    </div>
+                    <div class="inputrow">
+
+                        <textarea name="core" id="core" cols="70" rows="10" placeholder="Core meetup"></textarea>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="labelrow">
+                        <label for="participant">Add participants</label>
+                    </div>
+
+                    <div class="inputrow">
+                        <label class="container">
+                            <h6>Live CIRHIGIRI</h6>
+
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            <h6>Olive CIMANUKA</h6>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">
+                            <h6>Dieudonné Ddc</h6>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">
+                            <h6>Marfin Fayulu</h6>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            <h6>Josephine Zed</h6>
+
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                </div>
+
+
+                <input class="btn" type="button" name="" value="Add">
+            </form>
+            <h3 class="text">Current MeetUp Status</h3>
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width:60%;">Branch</th>
+                    <th style="width:40%;">topic title</th>
+                    <th style="width:60%;">participant number</th>
+                    <th style="width:40%;">Questions</th>
+                </tr>
+                <tr>
+                    <td>Nucleaire Physic</td>
+                    <td>climate change </td>
+                    <td>43 </td>
+                    <td>127 </td>
+                </tr>
+                <tr>
+                    <td>Leadership</td>
+                    <td>resolve conflits </td>
+                    <td>37 </td>
+                    <td>79 </td>
+                </tr>
+                <tr>
+                    <td>Agronomie</td>
+                    <td>Feed the world </td>
+                    <td>367 </td>
+                    <td>27 </td>
+                </tr>
+                <tr>
+                    <td>Computer Science</td>
+                    <td>Internet of things impact </td>
+                    <td>83 </td>
+                    <td>87 </td>
+                </tr>
+                <tr>
+                    <td>Leadership</td>
+                    <td>resolve conflits </td>
+                    <td>37 </td>
+                    <td>79 </td>
+                </tr>
+                <tr>
+                    <td>Agronomie</td>
+                    <td>Feed the world </td>
+                    <td>367 </td>
+                    <td>27 </td>
+                </tr>
+            </table>
+        </div>
+        <div class="box box2">
+            <h3 class="text">Most Interested Questions</h3>
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width:200px;">Question</th>
+                    <th style="width:10%;">PersonAsk</th>
+                    <th style="width:10%;">number Comment</th>
+                    <th style="width:10%;">UpVote-DownVot</th>
+                </tr>
+                <tr>
+                    <td style="">People say that high technilogy is the reason of climate change</td>
+                    <td>@LiveCirhigir </td>
+                    <td>13 </td>
+                    <td>8/3 </td>
+                </tr>
+                <tr>
+                    <td>Andela should ask to hire people who are advance in programing</td>
+                    <td>@baba JD </td>
+                    <td>34 </td>
+                    <td>7/15 </td>
+                </tr>
+                <tr>
+                    <td>the theorie of atmospherique pression explain more why </td>
+                    <td>@Martin Fayulu </td>
+                    <td>37 </td>
+                    <td>32/65 </td>
+                </tr>
+                <tr>
+                    <td>why should people more focus on </td>
+                    <td>@Dieudonné Ddc </td>
+                    <td>67 </td>
+                    <td>71/5 </td>
+                </tr>
+            </table>
+        </div>
+        <div class="box box3">
+            <h3 class="text">General MeetUp View </h3>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <table>
+                <tr>
+                    <th style="width:50%">Topic</th>
+                    <th>started</th>
+                    <th>being Update</th>
+                    <th>finished</th>
+                </tr>
+                <tr>
+                    <td>Gender Equality in leadership</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                </tr>
+                <tr>
+                    <td>Use of software in social life</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                </tr>
+                <tr>
+                    <td>Andela boot camp cycle 3,how to challenge it </td>
+                    <td><i class="fa fa-remove"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                </tr>
+                <tr>
+                    <td>Use of software in social life</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                </tr>
+                <tr>
+                    <td>Andela boot camp cycle 3,how to challenge it </td>
+                    <td><i class="fa fa-remove"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                </tr>
+                <tr>
+                    <td>Use of pivotal track and Github</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-remove"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                </tr>
+                <tr>
+                    <td>How to train your mind for hard work</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                </tr>
+            </table>
+        </div>
+        <div class="box box4">
+            <h3 class="ctext">deleted meetups</h3>
+
+            <article>
+
+                <table text-align="center">
+
+                    <tr>
+                        <th>Subject</th>
+                        <th>due date</th>
+                        <th>participants</th>
+                        <th>action</th>
+                    </tr>
+                    <tr>
+                        <td>SDG's goals </td>
+                        <td>2015 feb 19th</td>
+                        <td><mark>26 </mark></td>
+                        <td><button class="del">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Voxy english test </td>
+                        <td>2017 dec 17th</td>
+                        <td><mark>5 </mark></td>
+                        <td><button class="del">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Repository on Github</td>
+                        <td>2018 march 4th</td>
+                        <td><mark>51 </mark></td>
+                        <td><button class="del">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Vote in DRC</td>
+                        <td>2012 february 34th</td>
+                        <td><mark>45 </mark></td>
+                        <td> <button class="del">Delete</button> </td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+
+    </div>
+    <script src="../JS/admin.js"></script>
+</body>
+
+</html>

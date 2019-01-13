@@ -1,0 +1,29 @@
+{
+  "name": "questionner",
+  "version": "1.0.0",
+  "description": "questiionner folder",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Livecirhigiri/Questionner.git"
+  },
+  "author": "live cirhigiri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Livecirhigiri/Questionner/issues"
+  },
+  "homepage": "https://github.com/Livecirhigiri/Questionner#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

@@ -1,0 +1,652 @@
+:root {
+    --container-bg-color : #333;
+    --left-gb-color : rgba(2, 23, 36, 0.7);
+    --left-button-hover-color : rgba(161, 11, 11, 0.3);
+    --right-bg-color : rgba(43, 43, 43, 0.8);
+    --right-button-hover-color : rgba(92, 92, 92, 0.3);
+    --hover-width : 75%;
+    --other-width : 25%;
+    --speed : 1000ms;
+}
+
+html, body {
+
+    padding: 0;
+    margin : 0;
+    width : 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+h2{
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    font-style: italic;
+    font-family: sans-serif;
+    left: 50%;
+    top : -35%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+#title{
+    font-size: 3rem;
+    text-align: center;
+    color: #fff;
+    font-style: italic;
+    font-family: sans-serif;
+    position: absolute;
+    left: 50%;
+    top : -2%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    
+}
+.button {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top : 40%;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 15rem;
+    text-align: center;
+    color: #fff;
+    border: #fff solid 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateX(-50%);
+
+}
+.button1 {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top : 55%;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 15rem;
+    text-align: center;
+    color: #fff;
+    border: #fff solid 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateX(-50%);
+
+}
+
+.admin.left .button:hover {
+    background-color: var(--left-button-hover-color);
+    border-color: var(--left-button-hover-color);
+}
+
+.user.right .button:hover {
+    background-color: var(--right-button-hover-color);
+    border-color: var(--right-button-hover-color);
+}
+.user.right .button1:hover {
+    background-color: var(--right-button-hover-color);
+    border-color: var(--right-button-hover-color);
+}
+
+.container {
+    position: relative;
+    width:  100%;
+    height: 100%;
+    background-color: var(--container-bg-color);
+}
+.admin, .user {
+    position: absolute;
+    width : 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.admin.left{
+    left : 0;
+    background : url('img/back2.jpeg') center center no-repeat;
+    background-size: cover;
+}
+.admin.left:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--left-gb-color);
+}
+.user.right{
+    right : 0;
+    background: url('img/back1.jpeg') center center no-repeat;
+    background-size: cover;
+}
+.user.right:before {
+
+   position: absolute;
+   content: "";
+   width: 100%;
+   height: 100%;
+   background: var(--right-bg-color);
+}
+
+.admin.left , .user.right, .admin.left:before, .user.right:before {
+
+    transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left {
+    width: var(--hover-width);
+
+}
+
+.hover-left .right {
+    width: var(--other-width);
+}
+.hover-left .right:before {
+    z-index: 2;
+}
+
+.hover-right .right {
+    width: var(--hover-width);
+}
+
+.hover-right .left {
+    width: var(--other-width);
+}
+
+.hover-right .left:before{
+    z-index: 2;
+}
+
+.box {
+    position: absolute;
+    top : 50%;
+    left : 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    padding: 40px;
+    background: rgba(0,0,0,.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+.box .inputBox
+{
+    position: relative;
+}
+.box .inputBox input 
+{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border : none;
+    border-bottom : 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.box .inputBox label 
+{
+    position: absolute;
+    top: 0;
+    left : 0;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    font-size: 16px;
+    color : #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label
+{
+    top: -18px;
+    left: 0;
+    color: rgb(10, 172, 247);
+    font-size: 12px;
+}
+.box input[type="submit"]
+{
+    background : transparent;
+    border : none;
+    outline: none;
+    color : #fff;
+    background : rgb(10, 172, 247);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.sup{
+    background : transparent;
+    border : none;
+    outline: none;
+    color : #fff;
+    background : rgb(6, 223, 125);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+ 
+}
+
+.wrapper {
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-auto-rows: minmax(100px);
+    overflow-x: auto;
+    background: rgb(114, 136, 184);
+    overflow-x: auto;
+   
+
+}
+.wrapper1 {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    grid-auto-rows: minmax(100px);
+    overflow-x: auto;
+    background: rgb(253, 253, 253);
+    overflow-x: auto;
+   
+
+}
+.wrapper > div {
+
+   
+    padding: 1em;
+    margin: 7px;
+
+}
+.wrapper1 > div {
+
+   
+    padding: 1em;
+    margin: 7px;
+  
+
+}
+
+
+.nav{
+    grid-column: 1/20;
+    grid-row:1/2;
+    align-self: start;
+    background : rgb(243, 246, 247);
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color : rgb(3, 6, 12);
+    font-size: 20px;
+    text-shadow: #333;
+    font-weight: bold;    
+}
+.t1{
+    
+}
+.create2
+{    grid-column: 1/20;
+    grid-row:2/25;
+     background : rgb(243, 246, 247);
+    border-radius: 4px;
+}
+.create {
+     grid-column: 1/19;
+     grid-row:25/55;
+     background : rgb(243, 246, 247);
+    border-radius: 4px;
+ 
+
+}
+
+.create1 {
+    grid-row: 1/2;
+    background : rgba(231, 228, 228, 0.74);
+    border-radius: 4px;
+}
+.ctext{
+    text-align: center;
+    color: rgba(41, 38, 38, 0.678);
+}
+.meetup1 {
+    grid-column: 2/4;
+   
+    background: rgba(231, 228, 228, 0.74);
+    border-radius: 4px;
+
+}
+.deleted{
+    
+    grid-column: 2;
+    background : rgba(231, 228, 228, 0.74);
+    border-radius: 4px;
+    
+}
+.iquestion{
+
+background : rgba(231, 228, 228, 0.74);
+border-radius: 4px;
+}
+.delmeetup
+{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+i{
+    color: rgba(79, 128, 219, 0.747);
+}
+.card {
+    max-width: 200px;
+    margin-left: 0px;
+    text-align:center;
+    background-color: rgb(159, 177, 180);
+  }
+.dimension
+{  
+margin-top : -30%;
+width: 80%;
+float: right;
+
+
+}
+.submeetup{
+    border-radius: 5px;
+    background-color :rgba(235, 235, 235, 0.8);
+    padding: 10px;
+    margin: 10px;
+    color : black;
+  
+}
+table
+{
+    opacity: 0.95;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(202, 84, 84, 0.2);
+}
+th 
+{
+    background:  rgba(66, 78, 85, 0.418);
+    color : rgb(19, 17, 17);
+}
+
+tr:nth-child(even)
+{
+    background: #e5ecec;
+}
+tr:nth-child(odd)
+{
+    background-color : rgb(169, 179, 196);
+}
+th, td
+{
+    text-align: center;
+    padding: 10px;
+}
+article
+{
+    overflow-x: auto;
+}
+mark{
+    
+}
+.del {
+        background-color: rgb(110, 43, 48); /* Green */
+        border: none;
+        color: white;
+        padding: 5px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        cursor: pointer;
+        border-radius: 5px;
+        -webkit-transition-duration: 0.4s; 
+        transition-duration: 0.4s;
+      
+}
+.del:hover{
+    background-color: rgb(223, 30, 30); 
+    color: white;
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0;
+  }
+  
+  ul li {
+    border: 1px solid #ddd; 
+    margin-top: -1px; 
+    background-color: #f6f6f6; 
+    padding: 12px; *
+      }
+  li:hover{
+      background: rgba(143, 141, 141, 0.5);
+      cursor: pointer;
+  }
+  input[type="checkbox"]
+  {
+      cursor: pointer;
+  }
+  input[type=text],input[type=date],select, textarea 
+{
+    width : 100%;
+    padding: 12px;
+    border : 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing : border-box;
+    resize: vertical;
+}
+input[type=submit]
+{
+    background : transparent;
+    border : none;
+    outline: none;
+    color : #fff;
+    background : rgba(3, 75, 119, 0.8);
+    padding: 10px 20px;
+   
+    cursor: pointer;
+    border-radius: 5px;
+    float: right;
+}
+label{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.check{
+    cursor: pointer;
+
+}
+   
+
+.formcontainer
+{
+    border-radius: 5px;
+    background-color :rgba(76, 91, 100, 0.281);
+    padding: 4px;
+    
+}
+
+
+
+
+@media screen and (max-width : 600px){
+    .labelrow, .inputrow, input[type=submit]{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+.topq{
+    color: rgba(164, 223, 238, 0.2)
+}
+
+ul {
+    list-style-type: none;
+    padding: 0; 
+    margin: 0; 
+  }
+  
+  ul li {
+    border: 1px solid #ddd; 
+    margin-top: -1px; 
+    background-color: #f6f6f6;
+    padding: 12px;
+  }
+  .cor
+  {
+    padding: 10px;
+    border-radius: 7px;    
+    background-color: #f6f6f6;
+   
+  }
+
+  .cor1
+  {
+    padding: 10px;
+    border-radius: 12px;    
+    background-color: #cfdde4; 
+    border: rgba(45, 45, 46, 0.575) 1px solid;
+   
+  }
+  
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 18%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 12px;
+    transition: 0.4s;
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+  .up, .down{
+    background-color: rgb(194, 191, 191);
+    color: #444;
+    cursor: pointer;
+    margin-top: 5px;
+    padding: 10px;
+    width: 18%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 12px;
+    transition: 0.4s;
+    border-radius: 4px;
+   
+
+  }
+  .up:hover, .down:hover{
+    background-color: rgba(62, 58, 102, 0.5);
+    color: rgba(219, 215, 215, 0.918);
+
+  }
+  
+  .imgup{
+    width: 25%;
+    padding: 0;
+    margin-right: 0;
+  }
+  .imgdown{
+    width: 25%;
+    padding: 0;
+    margin-right: 0;
+  }
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: rgba(206, 201, 201, 0.308);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border-radius: 4px;
+  }
+  
+  
+  
+  .title {
+    color: rgb(110, 45, 170);
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+  ul
+  {
+      border-radius: 10px;
+  }
+  .questp, .commp{
+    text-align: center;
+    width: 200px;
+    padding:2px;
+
+  }
+  .setmeetup
+  {   background-color: #61798f;
+      margin-top: 1px;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .Profil
+  {    
+      margin-top: 1px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .qtop{
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-weight: normal;
+}

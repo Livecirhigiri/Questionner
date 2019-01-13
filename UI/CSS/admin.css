@@ -1,0 +1,226 @@
+
+body 
+{
+    /*background-image:url(admin.jpeg);*/
+    background-color:rgb(80, 100, 143);
+    opacity: 1;
+}
+.wrapper  >div
+{
+    
+    background: #eee;
+    padding: 1em;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+input
+{
+    width: 100%;
+    font-size: 18px;
+    margin: 20px auto;
+    display: block;
+
+} 
+.btn
+{
+    font-weight: lighter;
+    color:rgba(42, 33, 168, 0.966) ;
+    background-color:rgb(98, 83, 107);
+    width: 40%;
+    text-transform:unset;
+    margin-right: 10px;
+    border-radius: 7px;
+    border: 2px solid #041b05;
+    cursor: pointer;
+    transition : backgroung-color 0.2s ,border 0.2s ,color 0.2s;
+    
+}
+.box5 h2
+{
+  text-align: center;
+}
+.meetup1 {
+  grid-column: 2/4;
+ 
+  background: rgba(231, 228, 228, 0.74);
+  border-radius: 4px;
+
+}
+.box1
+{
+  grid-column:1/2;
+  grid-row:3/60;
+}
+.box2
+{   grid-column:2/4;
+    grid-row:3/23;
+}
+.box3
+{   grid-column:2/4;
+    grid-row:23/41;
+}
+.box4
+{   grid-column:2/4;
+    grid-row:41/60;
+}
+.box5
+{   grid-column:1/4;
+   grid-row:1/2;
+    border-radius: 15px;
+    text-align: center;
+    height: 15px;
+    padding-top: 0;
+    font-size: 25px;
+
+
+}
+.del
+{
+  background-color: rgb(163, 73, 37)
+}
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  .container input:checked ~ .checkmark {
+    background-color: rgb(54, 98, 134);
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+    left: 9px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  #myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 12px; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  #comment
+  {
+    justify-items: stretch;
+    align-items: stretch;
+  }
+  
+  #myTable {
+    border-collapse: collapse; 
+    width: 100%; 
+    
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+  }
+  .header th
+  {
+   background-color: rgb(61, 69, 107);
+  }
+  
+  #myTable th, #myTable td {
+    text-align: left; 
+    padding: 12px; 
+  }
+  #myTable tr:nth-child() {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+    background-color: #071330; 
+    background-color: #112144
+  }
+  
+  #myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+  }
+.wrapper  >div:nth-child(odd)
+{
+   background:#ddd;
+}
+.wrapper
+{
+    display :grid;
+    grid-gap: 1em;
+}
+/* Style the table */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  /* Style table headers and table data */
+  th, td {
+    text-align: center;
+    padding: 8px;
+    width: 60px;
+  }
+  
+  th:first-child, td:first-child {
+    text-align: left;
+  }
+  
+  /* Zebra-striped table rows */
+  tr:nth-child(even) {
+    background-color: #adb8d1
+  }
+  
+  .fa-check {
+    color: green;
+  }
+  
+  .fa-remove {
+    color: red;
+  }
