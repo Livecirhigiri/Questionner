@@ -34,24 +34,18 @@ const users = [
   }
 ];
 
-exports.updateUsers = (req, res) => {
-  const id = parseInt(req.params.id);
-  const some = users.find(user => user.id === id);
-  if (!some) {
-    return res.status(404).json({ error: "sorry user not found." });
-  }
-  const updateUser = {
-    id: id,
+exports.register = (req, res) => {
+  const newUser = {
+    id: users.length + 1,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    othername: req.body.othername,
+    othername:req.body.othername,
     email: req.body.email,
-    phoneNumber: req.body.phoneNumber,
+    phoneNumber:req.body.phoneNumber,
     username: req.body.username,
     registered: req.body.registered,
     isAdmin: req.body.isAdmin
   };
-  const userId = users.indexOf(some);
-  const newData = (users[userId] = updateUser);
-  return res.json({ status: 200, data: [newData] });
+  users.push(newUser);
+  res.status(200).json({ status: 200, data: [newUser]});
 };

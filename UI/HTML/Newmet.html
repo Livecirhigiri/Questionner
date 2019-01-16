@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../CSS/admin.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../CSS/home.css">
+    
+</head>
+<body>
+
+        <section class="side1">
+                <div class="m-title">
+                  <h2>Admin Account</h2>
+                </div>
+                <nav class="navbars">
+                    <ul>
+                         <li>
+                         <a href="#">
+                             <img src="../img/icons/home-icon-silhouette.svg"></img>
+                             <span>Home</span>
+                         </a>
+                                
+                             </li>
+                        <li>
+                            <a href="./Newmet.html">
+                             <img src="../img/icons/meetup.svg"></img>
+                             <span>Create Meetup</span>
+                            </a>
+                           
+                        </li>
+                        <li>
+                         <a href="./currentMet.html">
+                             <img src="../img/icons/goal.svg"></img>
+                             <span>meetUp status</span>
+                         </a>
+                        
+                     </li>
+                     <li>
+                             <a href="./upMetup.html">
+                                 <img src="../img/icons/question.svg"></img>
+                                 <span>Top Question</span>
+                             </a>
+                            
+                         </li>
+                     <li>
+                         <a href="./deleteMet.html">
+                             <img src="../img/icons/recycle-bin.svg"></img>
+                             <span>deleted meetUp</span>
+                         </a>
+                        
+                     </li>
+                     <li>
+                         <a href="index.html">
+                          <img src="../img/icons/power.svg"></img>
+                          <span>Logout</span>
+                         </a>
+                        
+                     </li>
+                    </ul>
+                 </nav>
+             </section>
+    <section class="side2">
+            <div class="newMetups">
+                    <h3 class="text">New MeetUp</h3>
+                    <form action="">
+                        <div class="row">
+                            <div class="labelrow">
+                                <label for="mdate">Name Meetup</label>
+                            </div>
+                            <div class="inputrow">
+                                <input type="tex" id="mdate" name="mdate" placeholder="topic">
+                            </div>
+            
+                        </div>
+                        <div class="row">
+                            <div class="labelrow">
+                                <label for="mdate">Meetup date</label>
+                            </div>
+                            <div class="inputrow">
+                                <input type="date" id="mdate" name="mdate" placeholder="">
+                            </div>
+            
+                        </div>
+                        <div class="row">
+                            <div class="labelrow">
+                                <label for="core">Meetup description</label>
+                            </div>
+                            <div class="inputrow">
+            
+                                <textarea name="core" id="core" cols="70" rows="10" 
+                                placeholder="Core meetup" class="textArea"></textarea>
+            
+                            </div>
+            
+                        </div>
+            
+            
+                        <input class="addMeetup" type="button" name="" value="Add">
+                    </form>
+            </div>
+        </section>
+
+    
+</body>
+</html>
