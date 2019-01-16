@@ -189,19 +189,6 @@ input {
   float: right;
 }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 .userad {
   display: flex;
   flex-direction: row;

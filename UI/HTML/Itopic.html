@@ -6,15 +6,58 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/USER1.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/home.css" />
     <script src="main.js"></script>
   </head>
   <body>
-        <div class="nav">
-                most interested topics
- <a href="./userprofil.html"  type="button"class="return" >user Profil</a>
- <a href="./meetup.html"  type="button"class="return" >current Meetup</a>
-    <a href="./index.html"style=" float : right;" type="button" class="return">logout</a>
-        </div>
+      <section class="side1">
+          <div class="m-title">
+            <h2>User account</h2>
+          </div>
+          <nav class="navbars">
+              <ul>
+                   <li>
+                   <a href="./home.html">
+                       <img src="../img/icons/home-icon-silhouette.svg"></img>
+                       <span>Home</span>
+                   </a>
+                          
+                       </li>
+                  <li>
+                      <a href="./userprofil.html">
+                       <img src="../img/icons/user.svg"></img>
+                       <span>Profile</span>
+                      </a>
+                     
+                  </li>
+                  <li>
+                   <a href="./Itopic.html">
+                       <img src="../img/icons/question.svg"></img>
+                       <span>Questions</span>
+                   </a>
+                  
+               </li>
+               <li>
+                   <a href="./meetup.html">
+                       <img src="../img/icons/meetup.svg"></img>
+                       <span>Meetup</span>
+                   </a>
+                  
+               </li>
+               <li>
+                   <a href="index.html">
+                    <img src="../img/icons/power.svg"></img>
+                    <span>Logout</span>
+                   </a>
+                  
+               </li>
+              </ul>
+           </nav>
+       </section>
+        <section class="side2">
+   <div class="nav">
+           Interest Topic
+<a href="./home.html" type="button"class="return" >logout</a></div>
     <table>
       <tr>
         <th>topic</th>
@@ -57,5 +100,6 @@
       </tr>
     </table>
 </div>
+        </section>
   </body>
 </html>
