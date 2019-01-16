@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  color: white;
+  line-height: 1.8;
+  font-size: 17px;
+  font-family: "Flamenco", cursive;
+}
+.main-case {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/meetup.jpeg);
+  background-size: cover;
+}
+.button {
+  background-color: rgb(1, 6, 12);
+  border: 7px solid white;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 30px;
+}
+.liveBtn {
+  margin-left: 30%;
+  margin-top: 40%;
+  padding: 30px;
+}
+.ABtn {
+  margin-left: 70%;
+  margin-top: -20%;
+  padding: 30px;
+}
+.main-content-header {
+  width: 100%;
+  text-align: center;
+}
+h1 {
+  color: #fff;
+  font-size: 30px;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.btn {
+  font-weight: lighter;
+  color: white;
+  background: none;
+  width: 50%;
+  text-transform: unset;
+  border: 2px solid #041b05;
+  cursor: pointer;
+  transition: backgroung-color 0.2s, border 0.2s, color 0.2s;
+}
+.btn-full {
+  background-color: gray;
+  color: rgb(243, 240, 240);
+  margin-right: 600px;
+  border: 2px solid #07000a;
+}
+.btn-full:hover {
+  background: slategrey;
+}
+.button:hover {
+  background: rgb(17, 13, 13);
+}
+
+.optional a {
+  width: 280px;
+  font-size: 13px;
+  line-height: 200px;
+  color: darkgray;
+  float: left;
+  margin-bottom: -30px;
+  height: 40px;
+  line-height: 0px;
+}
+.login-box h2 {
+  text-align: center;
+}
+.textbox {
+  width: 100%;
+  font-size: 20px;
+  padding: 0px;
+  margin: 1px;
+  border-bottom: 1px solid green;
+  margin-bottom: -25px;
+}
+
+input {
+  width: 95%;
+  font-size: 20px;
+  height: 40px;
+  margin-bottom: 30px;
+  display: block;
+  border-radius: 4px;
+  padding: 5px;
+  border: 1px solid #fff;
+  padding-left: 10px;
+  margin-bottom: 4px;
+}
+
+.colorchange {
+  animation: colorchangeMeet 2s infinite;
+}
+@keyframes colorchangeMeet {
+  0% {
+    color: chocolate;
+  }
+  15% {
+    color: crimson;
+  }
+  30% {
+    color: rgb(90, 167, 14);
+  }
+  45% {
+    color: rgb(20, 20, 136);
+  }
+  60% {
+    color: whitesmoke;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: rgba(97, 7, 7, 0.24);
+  }
+}
+@keyframes openModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 1180px) {
+  .main-content-header {
+    width: 100%;
+    padding: 0 2%;
+  }
+}
+@media only screen and (max-width: 998px) {
+  h1 {
+    font-size: 200%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 180%;
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  color: rgb(247, 245, 245);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  min-height: 50%;
+  border-radius: 15px;
+  background: rgba(27, 27, 27, 0.555);
+}
+.goBack{
+  color: #fff;
+  float: right;
+}
+
+.userad {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-top: 15%;
+}
+#myBtn,
+#myBtn1 {
+  font-size: 15px;
+  height: 60%;
+  padding: 1%;
+  border-radius: 5px;
+  border-color: 10px rgba(8, 6, 6, 0.658);
+  margin-top: 10%;
+  background-color: aquamarine;
+  padding-left: 55px;
+  padding-right: 55px;
+  border: none;
+  margin: 20px;
+}
+.btnuser {
+  font-size: 15px;
+  height: 50px;
+  padding: 1%;
+  border-radius: 5px;
+  border-color: 10px rgba(8, 6, 6, 0.658);
+  margin-top: 5%;
+  background-color: aquamarine;
+  padding-left: 55px;
+  padding-right: 55px;
+  border: none;
+  margin-left: 0px;
+  color: #fff;
+}
+.btnRed {
+  font-size: 15px;
+  color: #fff;
+  padding: 5px;
+  background-color: aquamarine;
+  display: inline-block;
+  height: 50px;
+  border: none;
+  margin: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 3px;
+}
+#title {
+  font-size: 3rem;
+  text-align: left;
+  color: rgb(15, 9, 9);
+  font-style: italic;
+  font-family: sans-serif;
+  position: absolute;
+  left: 50%;
+  top: -2%;
+  transform: translateX(-50%);
+}
