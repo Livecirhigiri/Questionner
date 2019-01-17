@@ -98,6 +98,59 @@ class user {
       return res.status(200).json({ status: 200, data: [newUser] });
     }
   }
+  static allUsers(req, res) {
+    res.status(200).json({
+      status: 200,
+      data: [users]
+    });
+  }
+
+  static updateUsers(req, res) {
+    const id = parseInt(req.params.id);
+    const some = users.find(user => user.id === id);
+    if (!some) {
+      return res.status(404).json({ error: "sorry user not found." });
+    }
+    const updateUser = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      othername: req.body.othername,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      username: req.body.username,
+      registered: req.body.registered,
+      isAdmin: req.body.isAdmin
+    };
+    const userId = users.indexOf(some);
+    const newData = (users[userId] = updateUser);
+    return res.json({ status: 200, data: [newData] });
+  }
+
+  static getUserId(req, res) {
+    const userId = users.find(c => c.id === parseInt(req.params.id));
+    if (!userId) {
+      res.status(404).json({
+        status: 404,
+        error: "the user with the given ID was not found"
+      });
+    } else {
+      res.status(200).json({
+        status: 200,
+        data: [userId]
+      });
+    }
+  }
+
+  static deleteUser(req, res) {
+    const id = parseInt(req.params.id);
+    const some = users.find(user => user.id === id);
+    if (!some) {
+      return res.status(404).json({ error: "sorry user not found." });
+    }
+    const del = users.indexOf(some);
+    users.splice(del, 1);
+    return res.json({ success: "user removed successfully." });
+  }
 }
 
 module.exports = user;
