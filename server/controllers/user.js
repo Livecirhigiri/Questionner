@@ -1,6 +1,6 @@
 const joi = require("joi");
 const Extension = require("joi-date-extensions");
-const mine = joi.extend(Extension);
+//const mine = joi.extend(Extension);
 
 function validatePost(records) {
   const schema = {
@@ -56,7 +56,7 @@ const users = [
     email: "marcirh@gmail.com",
     phoneNumber: "8845043257",
     username: "marieLoui",
-    registered: 2 / 04 / 2016,
+    registered: 2016 - 09 - 12,
     isAdmin: false
   },
   {

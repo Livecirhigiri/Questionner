@@ -1,8 +1,9 @@
-const express = require("express");
+const express = require('express');
+
 const app = express.Router();
 
-const userController = require("../controllers/meetup");
+const userController = require('../controllers/meetup');
 
-app.post("/meetUps", userController.register);
+app.post('/meetUps', userController.register);
 
 module.exports = app;

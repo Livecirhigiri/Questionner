@@ -5,6 +5,7 @@ const userRoutes = require("./routes/userRoutes");
 const meetupRoutes = require("./routes/meetupRoutes");
 const questionRoutes = require("./routes/questionRoutes");
 const rsvpRoutes = require("./routes/rsvpRoutes");
+
 const port = 5000;
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(meetupRoutes);
 app.use(questionRoutes);
 app.use(rsvpRoutes);
 
-/*app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   const error = new Error("not found");
   error.status = 404;
   next(error);
@@ -31,7 +32,9 @@ app.use((error, req, res, next) => {
   });
 });
 */
-//port
+// port
 app.listen(port, () => {
   console.log("app is listening on port", port);
 });
+
+module.exports = app;
