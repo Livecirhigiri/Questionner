@@ -65,6 +65,58 @@ class question {
       return res.status(200).json({ status: 200, data: [newQuestion] });
     }
   }
+  static allquestion(req, res) {
+    res.status(200).json({
+      status: 200,
+      data: [Questions]
+    });
+  }
+
+  static getquestionId(req, res) {
+    const questionId = Questions.find(c => c.id === parseInt(req.params.id));
+    if (!questionId) {
+      res.status(404).json({
+        status: 404,
+        error: "the user with the given ID was not found"
+      });
+    } else {
+      res.status(200).json({
+        status: 200,
+        data: [questionId]
+      });
+    }
+  }
+
+  static updateQuestions(req, res) {
+    const id = parseInt(req.params.id);
+    const some = Questions.find(c => c.id === parseInt(req.params.id));
+    if (!some) {
+      return res.status(404).json({ error: "sorry question not found." });
+    }
+    const updateQuestion = {
+      id: id,
+      createdOn: req.body.createdOn,
+      createdBy: req.body.createdBy,
+      meetup: req.body.meetup,
+      tittle: req.body.tittle,
+      body: req.body.body,
+      votes: req.body.votes
+    };
+    const questionId = Questions.indexOf(some);
+    const newData = (Questions[questionId] = updateQuestion);
+    return res.json({ status: 200, data: [newData] });
+  }
+
+  static deleteQuestion(req, res) {
+    const id = parseInt(req.params.id);
+    const some = Questions.find(question => question.id === id);
+    if (!some) {
+      return res.status(404).json({ error: "sorry question not found." });
+    }
+    const del = Questions.indexOf(some);
+    Questions.splice(del, 1);
+    return res.json({ success: "question removed successfully." });
+  }
 }
 
 module.exports = question;
