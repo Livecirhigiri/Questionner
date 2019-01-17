@@ -62,6 +62,21 @@ class rsvp {
       return res.status(200).json({ status: 200, data: [newRsvp] });
     }
   }
+
+  static allrsvp(req, res) {
+    const { error } = validateRsvp(req.body);
+    if (error)
+      return res.status(400).send({
+        status: 400,
+        error: error.details[0].message
+      });
+    if (!error) {
+      res.status(200).json({
+        status: 200,
+        data: [rsvps]
+      });
+    }
+  }
 }
 
 module.exports = rsvp;

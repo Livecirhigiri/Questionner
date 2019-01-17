@@ -12,12 +12,12 @@ const app = express();
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/api/v1", userRoutes);
-app.use("/api/v1", meetupRoutes);
-app.use("/api/v1", questionRoutes);
-app.use("/api/v1", rsvpRoutes);
+app.use(userRoutes);
+app.use(meetupRoutes);
+app.use(questionRoutes);
+app.use(rsvpRoutes);
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   const error = new Error("not found");
   error.status = 404;
   next(error);
@@ -30,7 +30,7 @@ app.use((error, req, res, next) => {
     }
   });
 });
-
+*/
 //port
 app.listen(port, () => {
   console.log("app is listening on port", port);
