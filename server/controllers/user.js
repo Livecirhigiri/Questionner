@@ -111,19 +111,27 @@ class user {
     if (!some) {
       return res.status(404).json({ error: "sorry user not found." });
     }
-    const updateUser = {
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      othername: req.body.othername,
-      email: req.body.email,
-      phoneNumber: req.body.phoneNumber,
-      username: req.body.username,
-      registered: req.body.registered,
-      isAdmin: req.body.isAdmin
-    };
-    const userId = users.indexOf(some);
-    const newData = (users[userId] = updateUser);
-    return res.json({ status: 200, data: [newData] });
+    const { error } = validatePost(req.body);
+    if (error)
+      return res.status(400).send({
+        status: 400,
+        error: error.details[0].message
+      });
+    if (!error) {
+      const updateUser = {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        othername: req.body.othername,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+        username: req.body.username,
+        registered: req.body.registered,
+        isAdmin: req.body.isAdmin
+      };
+      const userId = users.indexOf(some);
+      const newData = (users[userId] = updateUser);
+      return res.json({ status: 200, data: [newData] });
+    }
   }
 
   static getUserId(req, res) {
