@@ -1,4 +1,6 @@
 const joi = require("joi");
+const Extension = require("joi-date-extensions");
+const mine = joi.extend(Extension);
 
 function validatePost(records) {
   const schema = {
@@ -24,11 +26,7 @@ function validatePost(records) {
       .min(2)
       .max(15)
       .required(),
-    registered: joi
-      .number()
-      .integer()
-      .min(1990)
-      .max(2019),
+    registered: mine.date().format("YYYY-MM-DD"),
     isAdmin: joi
       .boolean()
       .invalid(false)

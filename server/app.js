@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 const meetupRoutes = require("./routes/meetupRoutes");
-//const questionRoutes = require("./routes/questionRoutes");
+const questionRoutes = require("./routes/questionRoutes");
 //const rsvpRoutes = require("./routes/rsvpRoutes");
 const port = 5000;
 const app = express();
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(userRoutes);
 //app.use("/users", userRoutes);
 app.use(meetupRoutes);
-//app.use("/question", questionRoutes);
+app.use(questionRoutes);
 //app.use("/rsvp", rsvpRoutes);
 
 // app.use((req, res, next) => {
