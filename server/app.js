@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 const meetupRoutes = require("./routes/meetupRoutes");
 const questionRoutes = require("./routes/questionRoutes");
-//const rsvpRoutes = require("./routes/rsvpRoutes");
+const rsvpRoutes = require("./routes/rsvpRoutes");
 const port = 5000;
 const app = express();
 
@@ -12,11 +12,11 @@ const app = express();
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(userRoutes);
+app.use("/api/v1", userRoutes);
 //app.use("/users", userRoutes);
-app.use(meetupRoutes);
-app.use(questionRoutes);
-//app.use("/rsvp", rsvpRoutes);
+app.use("/api/v1", meetupRoutes);
+app.use("/api/v1", questionRoutes);
+app.use("/api/v1", rsvpRoutes);
 
 // app.use((req, res, next) => {
 //   const error = new Error("not found");
