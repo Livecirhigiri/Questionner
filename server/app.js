@@ -13,24 +13,23 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/v1", userRoutes);
-//app.use("/users", userRoutes);
 app.use("/api/v1", meetupRoutes);
 app.use("/api/v1", questionRoutes);
 app.use("/api/v1", rsvpRoutes);
 
-// app.use((req, res, next) => {
-//   const error = new Error("not found");
-//   error.status = 404;
-//   next(error);
-// });
-// app.use((error, req, res, next) => {
-//   res.status(error.status || 200);
-//   res.json({
-//     error: {
-//       message: error.message
-//     }
-//   });
-// });
+app.use((req, res, next) => {
+  const error = new Error("not found");
+  error.status = 404;
+  next(error);
+});
+app.use((error, req, res, next) => {
+  res.status(error.status || 200);
+  res.json({
+    error: {
+      message: error.message
+    }
+  });
+});
 
 //port
 app.listen(port, () => {
