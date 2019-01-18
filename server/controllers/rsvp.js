@@ -44,26 +44,24 @@ const rsvps = [
 ];
 
 class rsvp {
-    static register(req, res) {
-        const { error } = validateRsvp(req.body);
-        if (error) {
-            return res.status(400).send({
-                status: 400,
-                error: error.details[0].message,
-            });
-        }
-        if (!error) {
-            const newRsvp = {
-                id: rsvps.length + 1,
-                meetup: req.body.meetup,
-                user: req.body.user,
-                response: req.body.response,
-            };
-
-            rsvps.push(newRsvp);
-            return res.status(200).json({ status: 200, data: [newRsvp] });
-        }
-    }
+    static registersvp(req, res) {
+    const { error } = validateRsvp(req.body);
+    if (error) {
+      return res.status(400).send({
+        status: 400,
+        error: error.details[0].message
+      });
+    } 
+      const newRsvp = {
+        id: rsvps.length + 1,
+        meetup: req.body.meetup,
+        user: req.body.user,
+        response: req.body.response
+      };
+      rsvps.push(newRsvp);
+      return res.status(200).json({ status: 200, data: [newRsvp] });
+    
+  }
 
     static allrsvp(req, res) {
         res.status(200).json({

@@ -56,7 +56,7 @@ const meetUps = [
 ];
 
 class meetup {
-    static register(req, res) {
+    static registerM(req, res) {
         if (!isNaN(req.body.happeningOn)) {
             return res.status(400).send({
                 status: 400,

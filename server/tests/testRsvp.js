@@ -11,7 +11,7 @@ describe('User', () => {
             const data = { some: 'jkkkh' };
             chai
                 .request(server)
-                .post('/api/v1/rsvps')
+                .post('/meetups/:id/rsvps')
                 .send(data)
                 .end((err, res) => {
                     expect(res.status).to.deep.equal(400);
