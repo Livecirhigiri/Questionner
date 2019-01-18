@@ -18,21 +18,10 @@ app.use(meetupRoutes);
 app.use(questionRoutes);
 app.use(rsvpRoutes);
 
-/* app.use((req, res, next) => {
-  const error = new Error("not found");
-  error.status = 404;
-  next(error);
-});
-app.use((error, req, res, next) => {
-  res.status(error.status || 200);
-  res.json({
-    error: {
-      message: error.message
-    }
-  });
-});
-*/
-// port
+app.get('/*', (req, res) => res.status(200).send({
+        message: 'Welcome to Heroku',
+    }),);
+
 app.listen(port, () => {
     console.log('app is listening on port', port);
 });

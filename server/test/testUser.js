@@ -5,19 +5,17 @@ const server = require('../app');
 //
 chai.use(chaiHttp);
 
-describe('User', () => {
-    describe('register', () => {
-        it('Should return status of 200', (done) => {
-            const data = { some: 'jkkkh' };
-            chai
-                .request(server)
-                .post('/meetups/:id/rsvps')
-                .send(data)
-                .end((err, res) => {
-                    expect(res.status).to.deep.equal(400);
-                    done();
-                });
-        });
+describe('register', () => {
+    it('Should return status of 200', (done) => {
+        const data = { some: 'jkkkh' };
+        chai
+            .request(server)
+            .post('/meetups/:id/rsvps')
+            .send(data)
+            .end((err, res) => {
+                expect(res.status).to.deep.equal(404);
+                done();
+            });
     });
 });
 

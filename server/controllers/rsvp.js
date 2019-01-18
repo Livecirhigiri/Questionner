@@ -1,8 +1,6 @@
 const joi = require('joi');
 const Extension = require('joi-date-extensions');
 
-// const mine = joi.extend(Extension);
-
 function validateRsvp(records) {
     const schema = {
         meetup: joi
@@ -16,6 +14,9 @@ function validateRsvp(records) {
         response: joi
             .string()
             .min(2)
+            .allow('')
+            .trim()
+            .strict()
             .required(),
     };
 
@@ -45,23 +46,22 @@ const rsvps = [
 
 class rsvp {
     static registersvp(req, res) {
-    const { error } = validateRsvp(req.body);
-    if (error) {
-      return res.status(400).send({
-        status: 400,
-        error: error.details[0].message
-      });
-    } 
-      const newRsvp = {
-        id: rsvps.length + 1,
-        meetup: req.body.meetup,
-        user: req.body.user,
-        response: req.body.response
-      };
-      rsvps.push(newRsvp);
-      return res.status(200).json({ status: 200, data: [newRsvp] });
-    
-  }
+        const { error } = validateRsvp(req.body);
+        if (error) {
+            return res.status(400).send({
+                status: 400,
+                error: error.details[0].message,
+            });
+        }
+        const newRsvp = {
+            id: rsvps.length + 1,
+            meetup: req.body.meetup,
+            user: req.body.user,
+            response: req.body.response,
+        };
+        rsvps.push(newRsvp);
+        return res.status(200).json({ status: 200, data: [newRsvp] });
+    }
 
     static allrsvp(req, res) {
         res.status(200).json({

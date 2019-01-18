@@ -1,6 +1,6 @@
 const joi = require("joi");
 const Extension = require("joi-date-extensions");
-//const mine = joi.extend(Extension);
+const ExtJoi = joi.extend(Extension);
 
 function validatePost(records) {
   const schema = {
@@ -15,6 +15,9 @@ function validatePost(records) {
     othername: joi.string().min(2),
     email: joi
       .string()
+      .allow("")
+      .trim()
+      .strict()
       .email({ minDomainAtoms: 2 })
       .required(),
     phoneNumber: joi
@@ -25,8 +28,11 @@ function validatePost(records) {
       .string()
       .min(2)
       .max(15)
+      .allow("")
+      .trim()
+      .strict()
       .required(),
-    registered: mine.date().format("YYYY-MM-DD"),
+    registered: ExtJoi.date().format("YYYY-MM-DD"),
     isAdmin: joi
       .boolean()
       .invalid(false)

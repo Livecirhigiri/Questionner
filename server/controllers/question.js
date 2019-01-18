@@ -1,22 +1,29 @@
 const joi = require('joi');
 const Extension = require('joi-date-extensions');
 
-// const mine = joi.extend(Extension);
-
 function validateQuestion(records) {
     const schema = {
         user: joi
             .string()
+            .allow('')
+            .trim()
+            .strict()
             .min(2)
             .required(),
         meetup: joi.number().max(5),
         tittle: joi
             .string()
+            .allow('')
+            .trim()
+            .strict()
             .min(2)
             .required(),
         body: joi
             .string()
             .min(2)
+            .allow('')
+            .trim()
+            .strict()
             .required(),
     };
 
@@ -90,35 +97,37 @@ class question {
         }
     }
 
-    static updateQuestions(req, res) {
-    const some = Questions.find(c => c.id === parseInt(req.params.id));
-    if (!some) {
-      return res.status(404).json({ error: "sorry question not found." });
-    } 
-      let size = parseInt(req.params.id, 10);
-      size -= 1;
-      let upVote = Questions[size].votes;
-      upVote++;
-      Questions[size].votes = upVote;
-      res.status(200).json({
-        status: 200,
-        data: [Questions]
-      });
-    
+    static upvoteQuestions(req, res) {
+        const Question = Questions.find(c => c.id === parseInt(req.params.id, 10));
+        if (!Question) {
+            res.status(404).send('sorry , question not found!');
+        }
+        let size = parseInt(req.params.id, 10);
+        size -= 1;
+        let upVote = Questions[size].votes;
+        upVote++;
+        Questions[size].votes = upVote;
+        res.status(200).json({
+            status: 200,
+            data: [Question],
+        });
+    }
 
-    /* const updateQuestion = {
-            id,
-            createdOn: req.body.createdOn,
-            createdBy: req.body.createdBy,
-            meetup: req.body.meetup,
-            tittle: req.body.tittle,
-            body: req.body.body,
-            votes: req.body.votes,
-        };
-        const questionId = Questions.indexOf(some);
-        const newData = (Questions[questionId] = updateQuestion);
-        return res.json({ status: 200, data: [newData] }); */
-  }
+    static downvoteQuestions(req, res) {
+        const Question = Questions.find(c => c.id === parseInt(req.params.id, 10));
+        if (!Question) {
+            res.status(404).send('sorry , question not found!');
+        }
+        let size = parseInt(req.params.id, 10);
+        size -= 1;
+        let downvote = Questions[size].votes;
+        downvote++;
+        Questions[size].votes = downvote;
+        res.status(200).json({
+            status: 200,
+            data: [Question],
+        });
+    }
 
     static deleteQuestion(req, res) {
         const id = parseInt(req.params.id);
