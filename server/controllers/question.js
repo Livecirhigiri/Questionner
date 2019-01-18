@@ -68,7 +68,8 @@ class question {
         }
     }
   }
-  static allquestion(req, res) {
+
+  /*static allquestion(req, res){
     res.status(200).json({
       status: 200,
       data: [Questions]
@@ -119,7 +120,7 @@ class question {
     const del = Questions.indexOf(some);
     Questions.splice(del, 1);
     return res.json({ success: "question removed successfully." });
-  }
+  }*/
 }
 
 module.exports = question;

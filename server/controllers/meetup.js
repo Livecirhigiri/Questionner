@@ -145,9 +145,8 @@ class meetup {
         meetUps.splice(del, 1);
         return res.json({ success: 'meetup removed successfully.' });
     }
-<<<<<<< HEAD
-=======
-  }
+}
+/*
   static allmeetup(req, res) {
     res.status(200).json({
       status: 200,
@@ -206,7 +205,6 @@ class meetup {
     meetUps.splice(del, 1);
     return res.json({ success: "question removed successfully." });
   }
->>>>>>> meetup
 }
-
+*/
 module.exports = meetup;
