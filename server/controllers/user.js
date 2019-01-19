@@ -105,7 +105,7 @@ class user {
   static allUsers(req, res) {
     res.status(200).json({
       status: 200,
-      data: [users]
+      data: users
     });
   }
 
@@ -148,7 +148,7 @@ class user {
     } else {
       res.status(200).json({
         status: 200,
-        data: [userId]
+        data: userId
       });
     }
   }

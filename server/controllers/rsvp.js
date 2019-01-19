@@ -66,7 +66,7 @@ class rsvp {
     static allrsvp(req, res) {
         res.status(200).json({
             status: 200,
-            data: [rsvps],
+            data: rsvps,
         });
     }
 }

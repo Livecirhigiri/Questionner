@@ -27,7 +27,7 @@ function validateMeetup(records) {
             .trim()
             .strict()
             .required(),
-        happenningOn: Exjoi.date().format('YYYY-MM-DD'),
+        happeningOn: Exjoi.date().format('YYYY-MM-DD'),
         tags: joi.string().min(2),
     };
 
@@ -41,7 +41,7 @@ const meetUps = [
         location: 'DRC',
         image: 'C/mesImages/Bootcamp',
         topic: 'Andela Bootcamp',
-        happenningOn: '2019-01-25',
+        happeningOn: '2019-01-25',
         tags: 'Andela HomeStudy',
     },
     {
@@ -50,7 +50,7 @@ const meetUps = [
         location: 'Kigali',
         image: 'C/mesImages/Familly',
         topic: 'white party',
-        happenningOn: '2017-05-19',
+        happeningOn: '2017-05-19',
         tags: 'family first',
     },
     {
@@ -59,7 +59,7 @@ const meetUps = [
         location: 'Goma',
         image: 'C/mesImages/Beni',
         topic: 'DRC elections',
-        happenningOn: '2019-08-09',
+        happeningOn: '2019-08-09',
         tags: 'Beni people',
     },
 ];
@@ -85,19 +85,19 @@ class meetup {
                 createdOn: req.body.createdOn,
                 topic: req.body.topic,
                 location: req.body.location,
-                happenningOn: req.body.happenningOn,
+                happeningOn: req.body.happenningOn,
                 Tags: req.body.body,
             };
 
             meetUps.push(newMeetup);
-            return res.status(200).json({ status: 200, data: [newMeetup] });
+            return res.status(200).json({ status: 200, data: newMeetup });
         }
     }
 
     static allmeetup(req, res) {
         res.status(200).json({
             status: 200,
-            data: [meetUps],
+            data: meetUps,
         });
     }
 
@@ -111,7 +111,7 @@ class meetup {
         } else {
             res.status(200).json({
                 status: 200,
-                data: [meetupId],
+                data: meetupId,
             });
         }
     }
@@ -135,7 +135,7 @@ class meetup {
                 createdOn: req.body.createdOn,
                 topic: req.body.topic,
                 location: req.body.location,
-                happenningOn: req.body.happenningOn,
+                happeningOn: req.body.happeningOn,
                 Tags: req.body.body,
             };
             const meetupId = meetUps.indexOf(some);

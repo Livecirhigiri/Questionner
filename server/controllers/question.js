@@ -71,14 +71,14 @@ class question {
             };
 
             Questions.push(newQuestion);
-            return res.status(200).json({ status: 200, data: [newQuestion] });
+            return res.status(200).json({ status: 200, data: newQuestion });
         }
     }
 
     static allquestion(req, res) {
         res.status(200).json({
             status: 200,
-            data: [Questions],
+            data: Questions,
         });
     }
 
@@ -92,7 +92,7 @@ class question {
         } else {
             res.status(200).json({
                 status: 200,
-                data: [questionId],
+                data: questionId,
             });
         }
     }
@@ -109,7 +109,7 @@ class question {
         Questions[size].votes = upVote;
         res.status(200).json({
             status: 200,
-            data: [Question],
+            data: Question,
         });
     }
 
@@ -125,7 +125,7 @@ class question {
         Questions[size].votes = downvote;
         res.status(200).json({
             status: 200,
-            data: [Question],
+            data: Question,
         });
     }
 
