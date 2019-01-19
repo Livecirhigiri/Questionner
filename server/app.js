@@ -18,10 +18,6 @@ app.use(meetupRoutes);
 app.use(questionRoutes);
 app.use(rsvpRoutes);
 
-/* app.get('/*', (req, res) => res.status(200).send({
-        message: 'Welcome to Heroku',
-    }),); */
-
 app.listen(port, () => {
     console.log('app is listening on port', port);
 });
