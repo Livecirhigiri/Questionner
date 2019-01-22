@@ -6,7 +6,7 @@ const meetupcontrollers = require('../controllers/meetup');
 app.post('/', meetupcontrollers.registerMeetup);
 app.get('/', meetupcontrollers.getMeetup);
 app.get('/:id', meetupcontrollers.meetupId);
-// app.patch('/api/v1/meetups/:id', userController.updateMeetup);
-// app.delete('/api/v1/meetups/:id', userController.deleteMeetup);
+app.patch('/:id_meetup', meetupcontrollers.updateMeetup);
+app.delete('/:id_meetup', meetupcontrollers.deleteMeetup);
 
 module.exports = app;

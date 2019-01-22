@@ -55,4 +55,41 @@ module.exports = {
             },
         );
     },
+
+    updateMeetup: (req, res) => {
+        const id_meetup = parseInt(req.params.id_meetup, 10);
+
+        const {
+ createdon, images, topic, happeningon, tags 
+} = req.body;
+
+        pool.query(
+            'UPDATE meetups SET createdon = $1, images = $2, topic = $3 , happeningon=$4, tags=$5 WHERE id_meetup = $6',
+            [createdon, images, topic, happeningon, tags, id_meetup],
+            (err, results) => {
+                if (err) {
+                    throw err;
+                }
+                res.status(200).json({
+                    status: 200,
+                    data: [req.body],
+                });
+            },
+        );
+    },
+
+    deleteMeetup: (req, res) => {
+        const id_meetup = parseInt(req.params.id_meetup, 10);
+      
+        pool.query('DELETE FROM meetups WHERE id_meetup = $1', [id_meetup], (err, results) => {
+          if (err) {
+            throw err;
+          }
+      
+          res.status(200).json({
+            status: 200,
+            data: `meetUp deleted with ID: ${id_meetup}`
+          });
+        });
+      }
 };
