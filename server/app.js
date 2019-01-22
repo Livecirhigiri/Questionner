@@ -1,10 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/userRoutes');
-const meetupRoutes = require('./routes/meetupRoutes');
-const questionRoutes = require('./routes/questionRoutes');
-const rsvpRoutes = require('./routes/rsvpRoutes');
+const userRoutes = require('./routes/user');
+const meetupRoutes = require('./routes/meetup');
+const questionRoutes = require('./routes/question');
+const rsvpRoutes = require('./routes/rsvp');
 
 const port = parseInt(process.env.PORT, 10) || 4000;
 const app = express();
