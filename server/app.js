@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(user);
-app.use('/api/v1/meetups', meetup);
+app.use('/api/v1/meetups/', meetup);
 app.use(question);
 app.use(rsvp);
 

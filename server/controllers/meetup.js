@@ -38,17 +38,17 @@ module.exports = {
 
     registerMeetup: (req, res) => {
         const {
- createdon, image, topic, hapeningon, tags 
+ createdon, images, topic, hapeningon, tags 
 } = req.body;
         pool.query(
-            'INSERT INTO meetups (createdon,image, topic, hapeningon, tags) VALUES ($1,$2,$3,$4,$5) returning *',
-            [createdon, image, topic, hapeningon, tags],
-            (err, res) => {
+            'INSERT INTO meetups (images, createdon, topic, happeningon, tags) VALUES ($1,$2,$3,$4,$5) RETURNING *',
+            [images, createdon, topic, hapeningon, tags],
+            (err, result) => {
                 if (err) {
                     throw err;
                 } else {
-                    res.status(201).json({
-                        status: 201,
+                    return res.json({
+                        status: 200,
                         data: [req.body],
                     });
                 }
