@@ -1,10 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/user');
-const meetupRoutes = require('./routes/meetup');
-const questionRoutes = require('./routes/question');
-const rsvpRoutes = require('./routes/rsvp');
+const user = require('./routes/user');
+const meetup = require('./routes/meetup');
+const question = require('./routes/question');
+const rsvp = require('./routes/rsvp');
 
 const port = parseInt(process.env.PORT, 10) || 4000;
 const app = express();
@@ -13,10 +13,10 @@ const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(userRoutes);
-app.use(meetupRoutes);
-app.use(questionRoutes);
-app.use(rsvpRoutes);
+app.use(user);
+app.use('/api/v1/meetups', meetup);
+app.use(question);
+app.use(rsvp);
 
 /* app.get('/*', (req, res) => res.status(200).send({
         message: 'Welcome to Heroku',
