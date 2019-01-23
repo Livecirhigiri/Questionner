@@ -1,3 +1,4 @@
+const datetime = require('date-time');
 const pool = require('../config/connection');
 
 module.exports = {
@@ -80,16 +81,33 @@ module.exports = {
 
     deleteMeetup: (req, res) => {
         const id_meetup = parseInt(req.params.id_meetup, 10);
-      
-        pool.query('DELETE FROM meetups WHERE id_meetup = $1', [id_meetup], (err, results) => {
-          if (err) {
-            throw err;
-          }
-      
-          res.status(200).json({
-            status: 200,
-            data: `meetUp deleted with ID: ${id_meetup}`
-          });
+
+        pool.query(
+            'DELETE FROM meetups WHERE id_meetup = $1',
+            [id_meetup],
+            (err, results) => {
+                if (err) {
+                    throw err;
+                }
+
+                res.status(200).json({
+                    status: 200,
+                    data: `meetUp deleted with ID: ${id_meetup}`,
+                });
+            },
+        );
+    },
+
+    Upcomingmeetup: (req, res) => {
+        const current = datetime();
+        pool.query('SELECT * FROM meetups WHERE happeningon > $1', [current], (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.status(200).json({
+                status: 200,
+                data: result.rows,
+            });
         });
-      }
+    },
 };
