@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api/v1/users', user);
 app.use('/api/v1/meetups/', meetup);
-app.use('/api/v1',question);
+app.use('/api/v1/question',question);
 app.use(rsvp);
 app.use("/api/v1/comment",comment);
 

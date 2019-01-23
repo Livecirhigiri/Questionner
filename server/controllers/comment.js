@@ -3,7 +3,7 @@ const db=require("../config/connection");
 
 exports.create=(req,res)=>{
     const newComment={
-        user:1,
+        user:req.user.id,
         comment:req.body.comment,
         question:parseInt(req.params.id)
     };
