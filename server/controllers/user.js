@@ -29,4 +29,65 @@ module.exports = {
         });
     },
 
+    registerUser: (req, res) => {
+        const {
+ firstname, lastname, othername, email, phonenumber, username,registered , isadmin
+} = req.body;
+        pool.query(
+            'INSERT INTO users (firstname, lastname, othername, email, phonenumber, username,registered , isadmin) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *',
+            [firstname, lastname, othername, email, phonenumber, username,registered , isadmin],
+            (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    return res.json({
+                        status: 200,
+                        data: [req.body],
+                    });
+                }
+            },
+        );
+    },
+
+    updateUser: (req, res) => {
+        const id_user = parseInt(req.params.id_user, 10);
+
+        const {
+ createdon, images, topic, happeningon, tags 
+} = req.body;
+
+        pool.query(
+            'UPDATE meetups SET createdon = $1, images = $2, topic = $3 , happeningon=$4, tags=$5 WHERE id_meetup = $6',
+            [createdon, images, topic, happeningon, tags, id_meetup],
+            (err, results) => {
+                if (err) {
+                    throw err;
+                }
+                res.status(200).json({
+                    status: 200,
+                    data: [req.body],
+                });
+            },
+        );
+    },
+
+
+    deleteUser: (req, res) => {
+        const id_user = parseInt(req.params.id_user, 10);
+
+        pool.query(
+            'DELETE FROM users WHERE id_user = $1',
+            [id_user],
+            (err, results) => {
+                if (err) {
+                    throw err;
+                }
+
+                res.status(200).json({
+                    status: 200,
+                    data: `user deleted with ID: ${id_user}`,
+                });
+            },
+        );
+    },
 };

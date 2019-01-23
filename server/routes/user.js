@@ -4,11 +4,11 @@ const app = express.Router();
 
 const userController = require('../controllers/user');
 
-// app.post('/users', userController.register);
-// app.post('/api/v1/users', userController.register);
+// app.post('/users', userController.register)
 app.get('/', userController.getUser);
-// app.patch('/api/v1/users/:id', userController.updateUsers);
+app.post('/', userController.registerUser);
+app.patch('/:id_user', userController.updateUser);
 app.get('/username', userController.getUsername);
-// app.delete('/api/v1/users/:id', userController.deleteUser);
+app.delete('/:id_user', userController.deleteUser);
 
 module.exports = app;
