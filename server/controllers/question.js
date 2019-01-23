@@ -4,8 +4,8 @@ module.exports = {
 
 
     upvoteQuestion: (req, res) => {
-        const questionId = parseInt(req.params.id, 10);
-        pool.query('SELECT * FROM question WHERE id_question = $1', [questionId], (err, result) => {
+        const id_question = parseInt(req.params.id_question, 10);
+        pool.query('SELECT * FROM question WHERE id_question = $1', [id_question], (err, result) => {
             if (err) {
                 console.log(err);
             }
@@ -16,7 +16,7 @@ module.exports = {
                 });
             }
             pool.query('INSERT INTO votes (id_user, id_question, votes) VALUES ($1,$2,$3) RETURNING *',
-                [1, questionId, true], (err, results) => {
+                [1, id_question, true], (err, results) => {
                     if (err) {
                         console.log(err);
                         return res.status(400).json({
@@ -25,7 +25,7 @@ module.exports = {
                         });
                     }
 
-                    pool.query('SELECT COUNT (*) as upvote FROM votes WHERE votes = $1 AND id_question= $2', [true, questionId], (err, result) => {
+                    pool.query('SELECT COUNT (*) as upvote FROM votes WHERE votes = $1 AND id_question= $2', [true, id_question], (err, result) => {
                         if (err) {
                             throw err;
                         }

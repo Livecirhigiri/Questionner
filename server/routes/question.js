@@ -4,7 +4,7 @@ const app = express.Router();
 
 const userController = require('../controllers/question');
 
-// app.post('/api/v1/questions', userController.registerQ);
+app.post('/upvoteQuest', userController.upvoteQuestion);
 // app.get('/api/v1/questions', userController.allquestion);
 // app.get('/api/v1/questions/:id', userController.getquestionId);
 // app.patch('/api/v1/questions/:id/upvote', userController.upvoteQuestions);
