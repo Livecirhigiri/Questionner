@@ -98,16 +98,16 @@ module.exports = {
         );
     },
 
-    Upcomingmeetup: (req, res) => {
+Upcomingmeetup: (req, res) => {
         const current = datetime();
-        pool.query('SELECT * FROM meetups WHERE happeningon > $1', [current], (err, result) => {
+        pool.query('SELECT * FROM meetups WHERE happeningon > $1', [current] ,(err, result) => {
             if (err) {
                 throw err;
             }
             res.status(200).json({
                 status: 200,
                 data: result.rows,
-            });
+            })
         });
     },
 };

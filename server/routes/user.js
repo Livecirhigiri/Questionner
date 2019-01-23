@@ -4,9 +4,9 @@ const app = express.Router();
 
 const userController = require('../controllers/user');
 
-// app.post('/users', userController.register)
 app.get('/', userController.getUser);
-app.post('/', userController.registerUser);
+app.post('/signUp', userController.signupUser);
+app.post('/signIn', userController.signinUser);
 app.patch('/:id_user', userController.updateUser);
 app.get('/username', userController.getUsername);
 app.delete('/:id_user', userController.deleteUser);

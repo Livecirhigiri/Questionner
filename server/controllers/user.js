@@ -29,7 +29,7 @@ module.exports = {
         });
     },
 
-    registerUser: (req, res) => {
+    signupUser: (req, res) => {
         const {
  firstname, lastname, othername, email, phonenumber, username,registered , isadmin
 } = req.body;
@@ -48,17 +48,33 @@ module.exports = {
             },
         );
     },
-
+    signinUser: (req, res) => {
+        const { email, username} = req.body;
+        pool.query(
+            'INSERT INTO users ( email, username) VALUES ($1,$2) RETURNING *',
+            [ email, username],
+            (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    return res.json({
+                        status: 200,
+                        data: [req.body],
+                    });
+                }
+            },
+        );
+    },
     updateUser: (req, res) => {
         const id_user = parseInt(req.params.id_user, 10);
 
         const {
- createdon, images, topic, happeningon, tags 
+            firstname, lastname, othername, email, phonenumber, username,registered , isadmin
 } = req.body;
 
         pool.query(
             'UPDATE meetups SET createdon = $1, images = $2, topic = $3 , happeningon=$4, tags=$5 WHERE id_meetup = $6',
-            [createdon, images, topic, happeningon, tags, id_meetup],
+            [firstname, lastname, othername, email, phonenumber, username,registered , isadmin],
             (err, results) => {
                 if (err) {
                     throw err;
