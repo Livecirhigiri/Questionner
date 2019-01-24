@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api/v1/users', user);
 app.use('/api/v1/meetups/', meetup);
-app.use('/api/v1/question',question);
-app.use('/api/v1/rsvp', rsvp);
-app.use("/api/v1/comment",comment);
+app.use('/api/v1/questions',question);
+app.use('/api/v1/meetups', rsvp);
+app.use("/api/v1/questions",comment);
 
 /* app.get('/*', (req, res) => res.status(200).send({
         message: 'Welcome to Heroku',

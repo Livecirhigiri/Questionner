@@ -37,9 +37,8 @@ module.exports = {
        if(error){
            return res.status(400).json(error.details[0].message);
        }
-        const {
- firstname, lastname, othername, email, phonenumber, username,password
-} = req.body;
+        const {firstname, lastname, othername, email, phonenumber, username, password} = req.body;
+
         pool.query(
             'INSERT INTO users (firstname, lastname, othername, email, phonenumber, username,password) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *',
             [firstname, lastname, othername, email, phonenumber, username,password],
@@ -48,7 +47,7 @@ module.exports = {
                    console.log(err);
                 } else {
                     return res.json({
-                        status: 200,
+                        status: 201,
                         data: result.rows
                     });
                 }
@@ -56,10 +55,6 @@ module.exports = {
         );
     },
     signinUser: (req, res) => {
-        const { error } = userValidation.validationUser(req.body);
-       if(error){
-           return res.status(400).json(error.details[0].message);
-       }
         pool.query('SELECT * FROM users WHERE email=$1 AND password=$2',
             [req.body.email,req.body.password],
             (err, result) => {
@@ -71,14 +66,14 @@ module.exports = {
                 }else{
                     const payload={
                         id:result.rows[0].id_user,
-                        username:result.rows[0].username,
+                        password:result.rows[0].password,
                         email:result.rows[0].email,
                     };
                     jwt.sign(payload,key.secret,{expiresIn:'7d'},(errs,token)=>{
                         if(errs){
                             console.log(errs);
                         }
-                        return res.json({token,users:result.rows});
+                        return res.status(201).json({token,users:result.rows});
                     });
                 }
             });
@@ -86,18 +81,18 @@ module.exports = {
     updateUser: (req, res) => {
         const id_user = parseInt(req.params.id_user, 10);
 
-        const { firstname, lastname, othername, email, phonenumber, username, registered , isadmin
+        const { firstname, lastname, othername, email, phonenumber, username, registered , isadmin,password
         } = req.body;
 
         pool.query(
             'UPDATE meetups SET createdon = $1, images = $2, topic = $3 , happeningon=$4, tags=$5 WHERE id_meetup = $6',
-            [firstname, lastname, othername, email, phonenumber, username,registered , isadmin],
+            [firstname, lastname, othername, email, phonenumber, username,registered , isadmin,password],
             (err, results) => {
                 if (err) {
                     console.log(err);
                 }
-                res.status(200).json({
-                    status: 200,
+                res.status(202).json({
+                    status: 202,
                     data: [req.body],
                 });
             },
@@ -112,17 +107,17 @@ registerUser: (req, res) => {
         error: error.details[0].message
  });
     if (!error) {
-     const {firstname, lastname, othername, email, phonenumber, username,isadmin
+     const {firstname, lastname, othername, email, phonenumber, username,isadmin,password
 } = req.body;
         pool.query(
-            'INSERT INTO users (firstname, lastname, othername, email,  phonenumber,  username, isadmin) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *',
-            [firstname, lastname, othername, email, phonenumber, username,isadmin],
+            'INSERT INTO users (firstname, lastname, othername, email,  phonenumber,  username, isadmin,password) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *',
+            [firstname, lastname, othername, email, phonenumber, username,isadmin,password],
             (err, result) => {
                 if (err) {
                     throw err;
                 } else {
                     return res.json({
-                        status: 200,
+                        status: 201,
                         data: [req.body],
                     });
                 }
@@ -142,9 +137,9 @@ registerUser: (req, res) => {
                    console.log(err);
                 }
 
-                res.status(200).json({
-                    status: 200,
-                    data: `user deleted with ID: ${id_user}`,
+                res.status(202).json({
+                    status: 202,
+                    data: `user deleted successfuly`,
                 });
             },
         );

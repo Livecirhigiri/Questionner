@@ -47,17 +47,17 @@ module.exports = {
      });
         if (!error) {
         const {
- createdon, images, topic, hapeningon, tags 
+  images, topic, happeningon, tags 
 } = req.body;
         pool.query(
-            'INSERT INTO meetups (images, createdon, topic, hapeningon, tags) VALUES ($1,$2,$3,$4,$5) RETURNING *',
-            [images, createdon, topic, hapeningon, tags],
+            'INSERT INTO meetups (images,  topic, happeningon, tags) VALUES ($1,$2,$3,$4) RETURNING *',
+            [images,  topic, happeningon, tags],
             (err, result) => {
                 if (err) {
                     throw err;
                 } else {
                     return res.json({
-                        status: 200,
+                        status: 201,
                         data: [req.body],
                     });
                 }
@@ -87,8 +87,8 @@ updateMeetup: (req, res) => {
                 if (err) {
                     throw err;
                 }
-                res.status(200).json({
-                    status: 200,
+                res.status(202).json({
+                    status: 202,
                     data: [req.body],
                 });
             },
@@ -106,9 +106,9 @@ updateMeetup: (req, res) => {
                     throw err;
                 }
 
-                res.status(200).json({
-                    status: 200,
-                    data: `meetUp deleted with ID: ${id_meetup}`,
+                res.status(202).json({
+                    status: 202,
+                    data: `meetUp deleted successfuly`,
                 });
             },
         );
@@ -120,8 +120,8 @@ Upcomingmeetup: (req, res) => {
             if (err) {
                 throw err;
             }
-            res.status(200).json({
-                status: 200,
+            res.status(202).json({
+                status: 202,
                 data: result.rows,
             })
         });

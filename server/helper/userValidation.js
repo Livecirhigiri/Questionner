@@ -26,8 +26,7 @@ module.exports = {
                 .min(2)
                 .allow('')
                 .trim()
-                .strict()
-                .required(),
+                .strict(),
             email: joi
                 .string()
                 .allow('')
@@ -36,8 +35,7 @@ module.exports = {
                 .email({ minDomainAtoms: 2 })
                 .required(),
             phonenumber: joi
-                .number()
-                .required(),
+                .number(),
             username: joi
                 .string()
                 .min(2)

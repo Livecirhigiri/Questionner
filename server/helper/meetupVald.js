@@ -19,8 +19,7 @@ module.exports = {
                 .min(2)
                 .allow('')
                 .trim()
-                .strict()
-                .required(),
+                .strict(),
             topic: joi
                 .string()
                 .min(2)
@@ -28,7 +27,7 @@ module.exports = {
                 .trim()
                 .strict()
                 .required(),
-            happeningOn: Exjoi.date().format('YYYY-MM-DD'),
+            happeningon: Exjoi.date().format('YYYY-MM-DD'),
             tags: joi.string().min(2),
         };
 

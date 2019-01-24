@@ -6,6 +6,6 @@ const router=express.Router();
 const rsvpCtrl=require('../controllers/rsvp');
 
 
-router.post('/:id_rsvp',authentication.verifyToken,rsvpCtrl.rsvpAns);
+router.post('/:id_meetup/rsvp',authentication.verifyToken,rsvpCtrl.rsvpAns);
 
 module.exports=router;
