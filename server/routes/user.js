@@ -3,12 +3,13 @@ const express = require('express');
 const app = express.Router();
 
 const userController = require('../controllers/user');
+const authentication=require("../middleware/verify");
 
-app.get('/', userController.getUser);
-app.post('/signUp', userController.signupUser);
-app.post('/signIn', userController.signinUser);
-app.patch('/:id_user', userController.updateUser);
-app.get('/username', userController.getUsername);
-app.delete('/:id_user', userController.deleteUser);
+app.get('/', authentication.verifyToken,userController.getUser);
+app.post('/auth/signup', userController.signupUser);
+app.post('/auth/login', userController.signinUser);
+app.patch('/:id_user', authentication.verifyToken,userController.updateUser);
+app.get('/username',authentication.verifyToken, userController.getUsername);
+app.delete('/:id_user', authentication.verifyToken,userController.deleteUser);
 
 module.exports = app;

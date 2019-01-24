@@ -48,7 +48,8 @@ module.exports = {
                     error: 'question not found'
                 });
             }
-            pool.query('INSERT INTO votes (id_user, question, upvotes,downvotes) VALUES ($1,$2,$3,$4) RETURNING *', [req.body.user, questionId, 0, 1,](err, results) => {
+            pool.query('INSERT INTO votes (id_user, question, upvotes,downvotes) VALUES ($1,$2,$3,$4) RETURNING *', 
+            [req.user.id, questionId, 0, 1,],(err, results) => {
                 if(err) {
                     console.log(err);
                     return res.status(400).json({
