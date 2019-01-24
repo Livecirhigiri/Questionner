@@ -1,7 +1,16 @@
 const pool = require('../config/connection');
+const questionValid=require("../helper/questionValid");
+const datetime = require('date-time');
 
 module.exports = {
     upvoteQuestion: (req, res) => {
+        const { error } = questionValid.validationQuestion(req.body);
+        if (error)
+          return res.status(400).send({
+            status: 400,
+            error: error.details[0].message
+     });
+        if (!error) {
         const questionId = parseInt(req.params.id_question, 10);
         pool.query('SELECT * FROM question WHERE id_question = $1', [questionId], (err, result) => {
             if (err) {
@@ -34,9 +43,17 @@ module.exports = {
                     });
                 });
         });
-    },
+    }
+},
 
     downvoteQuestion: (req, res) => {
+        const { error } = questionValid.validationQuestion(req.body);
+        if (error)
+          return res.status(400).send({
+            status: 400,
+            error: error.details[0].message
+     });
+        if (!error) {
         const questionId = parseInt(req.params.id_question, 10);
         pool.query('SELECT * FROM question WHERE id_question = $1', [questionId], (err, result) => {
             if (err) {
@@ -70,4 +87,5 @@ module.exports = {
             });
         });
     }
-};
+},
+}

@@ -1,5 +1,6 @@
 const datetime = require('date-time');
 const pool = require('../config/connection');
+const meetupValid=require("../helper/meetupVald");
 
 module.exports = {
     getMeetup: (req, res) => {
@@ -34,10 +35,17 @@ module.exports = {
                     data: result.rows,
                 });
             },
-        );
+        )
     },
 
     registerMeetup: (req, res) => {
+        const { error } = meetupValid.validationMeetup(req.body);
+        if (error)
+          return res.status(400).send({
+            status: 400,
+            error: error.details[0].message
+     });
+        if (!error) {
         const {
  createdon, images, topic, hapeningon, tags 
 } = req.body;
@@ -55,9 +63,10 @@ module.exports = {
                 }
             },
         );
-    },
+    }
+},
 
-    updateMeetup: (req, res) => {
+updateMeetup: (req, res) => {
         const id_meetup = parseInt(req.params.id_meetup, 10);
 
         const {

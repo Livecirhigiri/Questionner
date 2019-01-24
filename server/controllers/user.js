@@ -88,15 +88,7 @@ module.exports = {
     updateUser: (req, res) => {
         const id_user = parseInt(req.params.id_user, 10);
 
-        const {
-            firstname, 
-            lastname, 
-            othername, 
-            email, 
-            phonenumber, 
-            username,
-            registered , 
-            isadmin
+        const { firstname, lastname, othername, email, phonenumber, username, registered , isadmin
         } = req.body;
 
         pool.query(
