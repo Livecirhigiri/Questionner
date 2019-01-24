@@ -1,24 +1,21 @@
-const { pool } = require('pg');
+const { Pool } = require('pg');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
-const pool = new({
-
-    connectionString: process.env.DATABASE_URL
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
 });
 
-pool.on('connect', () => {
-    console.log('connected to the db');
-});
+const connect = async () => pool.connect();
 
-CREATE TABLE public.users
+const tableQueries = `CREATE TABLE public.users
 (
     id_user integer NOT NULL DEFAULT nextval('user_id_seq'::regclass),
     firstname character varying(200) COLLATE pg_catalog."default",
     lastname character varying(200) COLLATE pg_catalog."default",
     othername character varying(200) COLLATE pg_catalog."default",
-    email character varying(200) COLLATE pg_catalog."default",
+    email character varying(200) UNIQUE COLLATE pg_catalog."default",
     phonenumber numeric(15,0),
     username character varying(200) COLLATE pg_catalog."default",
     registered date NOT NULL DEFAULT CURRENT_DATE,
@@ -77,4 +74,13 @@ CREATE TABLE public.comments
     comment text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT comments_pkey PRIMARY KEY (comment_id)
 )
+`;
 
+const migrateDb = () => new Promise( async(resolve) => {
+    const connection = await connect();
+    await connection.query(tableQueries);
+    connection.release();
+    resolve();
+});
+
+migrateDb();

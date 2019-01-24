@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use('/api/v1/users', user);
 app.use('/api/v1/meetups/', meetup);
 app.use('/api/v1/question',question);
-app.use(rsvp);
+app.use('/api/v1/rsvp', rsvp);
 app.use("/api/v1/comment",comment);
 
 /* app.get('/*', (req, res) => res.status(200).send({

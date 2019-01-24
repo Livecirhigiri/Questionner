@@ -73,8 +73,6 @@ module.exports = {
                         id:result.rows[0].id_user,
                         username:result.rows[0].username,
                         email:result.rows[0].email,
-                        firstname:result.rows[0].firstname,
-                        lastname:result.rows[0].lastname
                     };
                     jwt.sign(payload,key.secret,{expiresIn:'7d'},(errs,token)=>{
                         if(errs){

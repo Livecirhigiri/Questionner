@@ -50,7 +50,7 @@ module.exports = {
  createdon, images, topic, hapeningon, tags 
 } = req.body;
         pool.query(
-            'INSERT INTO meetups (images, createdon, topic, happeningon, tags) VALUES ($1,$2,$3,$4,$5) RETURNING *',
+            'INSERT INTO meetups (images, createdon, topic, hapeningon, tags) VALUES ($1,$2,$3,$4,$5) RETURNING *',
             [images, createdon, topic, hapeningon, tags],
             (err, result) => {
                 if (err) {

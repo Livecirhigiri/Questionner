@@ -1,13 +1,11 @@
-const express = require('express');
+const express=require('express');
+const authentication=require('../middleware/verify');
+//
+const router=express.Router();
+//
+const rsvpCtrl=require('../controllers/rsvp');
 
-const app = express.Router();
 
-const userController = require('../controllers/rsvp');
+router.post('/:id_rsvp',authentication.verifyToken,rsvpCtrl.rsvpAns);
 
-// app.post('/api/v1/meetups/:id/rsvps', userController.registersvp);
-// app.get('/api/v1/rsvps', userController.allrsvp);
-/* app.post("/Questions", userController.register);
-app.post("/Questions", userController.register);
-app.post("/Questions", userController.register); */
-
-module.exports = app;
+module.exports=router;
