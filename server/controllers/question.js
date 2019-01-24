@@ -1,6 +1,6 @@
 const pool = require('../config/connection');
 const questionValid=require("../helper/questionValid");
-const datetime = require('date-time');
+
 
 module.exports = {
     upvoteQuestion: (req, res) => {

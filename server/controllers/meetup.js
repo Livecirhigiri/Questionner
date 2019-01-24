@@ -67,6 +67,13 @@ module.exports = {
 },
 
 updateMeetup: (req, res) => {
+    const { error } = meetupValid.validationMeetup(req.body);
+    if (error)
+      return res.status(400).send({
+        status: 400,
+        error: error.details[0].message
+ });
+    if (!error) {
         const id_meetup = parseInt(req.params.id_meetup, 10);
 
         const {
@@ -86,8 +93,8 @@ updateMeetup: (req, res) => {
                 });
             },
         );
-    },
-
+    }
+},
     deleteMeetup: (req, res) => {
         const id_meetup = parseInt(req.params.id_meetup, 10);
 

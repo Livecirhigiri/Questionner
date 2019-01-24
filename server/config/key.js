@@ -1,4 +1,4 @@
-const key={
-    secret:"live"
-}
-module.exports=key;
+const key = {
+    secret: 'live',
+};
+module.exports = key;
