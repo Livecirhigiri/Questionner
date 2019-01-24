@@ -6,6 +6,6 @@ const router=express.Router();
 const commentCtrl=require('../controllers/comment');
 
 
-router.post('/:id',authentication.verifyToken,commentCtrl.create);
+router.post('/:id_question/comment',authentication.verifyToken,commentCtrl.create);
 
 module.exports=router;

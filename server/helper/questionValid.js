@@ -7,7 +7,7 @@ const Exjoi = joi.extend(Extension);
 module.exports = {
     validationQuestion: (records) => {
         const schema = {
-            user: joi
+            createdby: joi
                 .string()
                 .allow('')
                 .trim()
@@ -15,7 +15,7 @@ module.exports = {
                 .min(2)
                 .required(),
             meetup: joi.number().max(5),
-            tittle: joi
+            topic: joi
                 .string()
                 .allow('')
                 .trim()
@@ -29,6 +29,8 @@ module.exports = {
                 .trim()
                 .strict()
                 .required(),
+            upvotes: joi.number().max(5),
+            downvotes: joi.number().max(5),
         };
 
         return joi.validate(records, schema);
