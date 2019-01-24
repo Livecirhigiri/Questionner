@@ -2,13 +2,14 @@ const express = require('express');
 
 const app = express.Router();
 const meetupcontrollers = require('../controllers/meetup');
+const authentication=require("../middleware/verify");
 
-app.post('/', meetupcontrollers.registerMeetup);
-app.get('/', meetupcontrollers.getMeetup);
-app.get('/upcoming', meetupcontrollers.Upcomingmeetup);
-app.get('/:id', meetupcontrollers.meetupId);
-app.patch('/:id_meetup', meetupcontrollers.updateMeetup);
-app.delete('/:id_meetup', meetupcontrollers.deleteMeetup);
-app.get('/upcoming', meetupcontrollers.Upcomingmeetup);
+app.post('/',authentication.verifyToken, meetupcontrollers.registerMeetup);
+app.get('/',authentication.verifyToken, meetupcontrollers.getMeetup);
+app.get('/upcoming', authentication.verifyToken,meetupcontrollers.Upcomingmeetup);
+app.get('/:id',authentication.verifyToken, meetupcontrollers.meetupId);
+app.patch('/:id_meetup',authentication.verifyToken, meetupcontrollers.updateMeetup);
+app.delete('/:id_meetup',authentication.verifyToken, meetupcontrollers.deleteMeetup);
+app.get('/upcoming',authentication.verifyToken, meetupcontrollers.Upcomingmeetup);
 
 module.exports = app;

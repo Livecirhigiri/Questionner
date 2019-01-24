@@ -1,4 +1,4 @@
-//const datetime = require('date-time');
+
 const pool = require('../config/connection');
 const userValidation=require("../helper/userValidation");
 const jwt=require("jsonwebtoken");
@@ -33,7 +33,7 @@ module.exports = {
     },
 
     signupUser: (req, res) => {
-        const { error } = userValidation.validations(req.body);
+        const { error } = userValidation.validationUser(req.body);
        if(error){
            return res.status(400).json(error.details[0].message);
        }
@@ -56,6 +56,10 @@ module.exports = {
         );
     },
     signinUser: (req, res) => {
+        const { error } = userValidation.validationUser(req.body);
+       if(error){
+           return res.status(400).json(error.details[0].message);
+       }
         pool.query('SELECT * FROM users WHERE email=$1 AND password=$2',
             [req.body.email,req.body.password],
             (err, result) => {
@@ -110,6 +114,32 @@ module.exports = {
         );
     },
 
+registerUser: (req, res) => {
+    const { error } = userValidation.validationUser(req.body);
+    if (error)
+      return res.status(400).send({
+        status: 400,
+        error: error.details[0].message
+ });
+    if (!error) {
+     const {firstname, lastname, othername, email, phonenumber, username,isadmin
+} = req.body;
+        pool.query(
+            'INSERT INTO users (firstname, lastname, othername, email,  phonenumber,  username, isadmin) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *',
+            [firstname, lastname, othername, email, phonenumber, username,isadmin],
+            (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    return res.json({
+                        status: 200,
+                        data: [req.body],
+                    });
+                }
+            },
+        );
+    }
+},
 
     deleteUser: (req, res) => {
         const id_user = parseInt(req.params.id_user, 10);

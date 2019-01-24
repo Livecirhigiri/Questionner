@@ -1,6 +1,6 @@
 const joi = require("joi");
-const Extension = require("joi-date-extensions");
-const ExtJoi = joi.extend(Extension);
+const extension = require("joi-date-extensions");
+const extJoi = joi.extend(extension);
 
 function validatePost(records) {
   const schema = {
@@ -32,7 +32,7 @@ function validatePost(records) {
       .trim()
       .strict()
       .required(),
-    registered: ExtJoi.date().format("YYYY-MM-DD"),
+    registered: extJoi.date().format("YYYY-MM-DD"),
     isAdmin: joi
       .boolean()
       .invalid(false)

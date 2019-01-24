@@ -1,15 +1,24 @@
 const joi=require("joi");
+const extension = require("joi-date-extensions");
+const extJoi = joi.extend(extension);
+
 
 module.exports={
-    validations:(records)=>{
+    validationUser:(records)=>{
         const schema = {
             firstname: joi
               .string()
               .min(2)
+              .allow("")
+              .trim()
+              .strict()
               .required(),
             lastname: joi
               .string()
               .min(2)
+              .allow("")
+              .trim()
+              .strict()
               .required(),
             email: joi
               .string()
